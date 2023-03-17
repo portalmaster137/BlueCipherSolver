@@ -40,11 +40,11 @@ def tridigital_decipher(
             result += second_row[y-1]
         elif x == 3:
             result += third_row[y-1]
-    logging.info(f"Tridigital Deciphered: {result}")
+    
     if not d.check(result) and not option_bypass:
         logging.fatal(f"Tridigital Deciphered: {result} is not a valid word")
-        raise Exception(f"Tridigital Deciphered: {result} is not a valid word, use --tbypass to bypass this check")
-
+        raise Exception(f"Tridigital Deciphered result is not a valid word, use -t to bypass this check")
+    logging.info(f"Tridigital Deciphered: {result}")    
     return result
 
         
