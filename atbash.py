@@ -1,4 +1,5 @@
 import logging
+
 def decrypt_atbash(keyword: str):
     #first, turn the keyword into a list of characters
     temp = list(keyword)

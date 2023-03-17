@@ -13,5 +13,7 @@ def getArguments(args: list[str]):
 
     parser.add_argument("-i", "--indicators", help="Number of indicators", required=True)
 
+    parser.add_argument("-t", "--tbypass", help="Bypass tridigital check", action="store_true")
+    
     opt = parser.parse_args(args)
     return opt

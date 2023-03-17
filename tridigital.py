@@ -1,10 +1,14 @@
 import logging
+import enchant
+
+d = enchant.Dict("en_US")
 
 def tridigital_decipher(
     second_keyword: str,
     first_numbers: str,
     second_numbers: str,
-    number_indicators: int
+    number_indicators: int,
+    option_bypass: bool,
 ):
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     #remove any letters that is shown in the keyword
@@ -37,6 +41,10 @@ def tridigital_decipher(
         elif x == 3:
             result += third_row[y-1]
     logging.info(f"Tridigital Deciphered: {result}")
+    if not d.check(result) and not option_bypass:
+        logging.fatal(f"Tridigital Deciphered: {result} is not a valid word")
+        raise Exception(f"Tridigital Deciphered: {result} is not a valid word, use --tbypass to bypass this check")
+
     return result
 
         

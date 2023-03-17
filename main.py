@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.DEBUG, format="%(levelname)s | %(message)s")
 
 options = getArguments(sys.argv[1:])
 
-tridigital = tridigital_decipher(options.second, options.middle, options.bottom, int(options.indicators))
+tridigital = tridigital_decipher(options.second, options.middle, options.bottom, int(options.indicators), options.tbypass)
 atbash = decrypt_atbash(options.encrypted)
 vig = vigenere_cipher(atbash, tridigital)
 logging.info(f"Final result: {vig}")
